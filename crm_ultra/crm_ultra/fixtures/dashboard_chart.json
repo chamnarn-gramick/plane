@@ -1,0 +1,33 @@
+[
+ {
+  "doctype": "Dashboard Chart",
+  "name": "CRM Ultra - ยอดขายรายเดือน",
+  "chart_name": "ยอดขายรายเดือน",
+  "module": "CRM Ultra",
+  "chart_type": "Sum",
+  "document_type": "Sales Invoice",
+  "based_on": "posting_date",
+  "value_based_on": "grand_total",
+  "timespan": "Last Year",
+  "time_interval": "Monthly",
+  "type": "Bar",
+  "timeseries": 1,
+  "filters_json": "[[\"Sales Invoice\",\"docstatus\",\"=\",1]]",
+  "is_public": 1,
+  "color": "#1f6f6f"
+ },
+ {
+  "doctype": "Dashboard Chart",
+  "name": "CRM Ultra - Pipeline ตามขั้นตอน",
+  "chart_name": "Pipeline ตามขั้นตอน",
+  "module": "CRM Ultra",
+  "chart_type": "Group By",
+  "document_type": "Opportunity",
+  "group_by_type": "Count",
+  "group_by_based_on": "sales_stage",
+  "type": "Donut",
+  "timeseries": 0,
+  "filters_json": "[[\"Opportunity\",\"status\",\"=\",\"Open\"]]",
+  "is_public": 1
+ }
+]

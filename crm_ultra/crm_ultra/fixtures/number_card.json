@@ -1,0 +1,53 @@
+[
+ {
+  "doctype": "Number Card",
+  "name": "CRM Ultra - ยอดขายเดือนนี้",
+  "label": "ยอดขายเดือนนี้ (บาท)",
+  "module": "CRM Ultra",
+  "type": "Document Type",
+  "document_type": "Sales Invoice",
+  "function": "Sum",
+  "aggregate_function_based_on": "grand_total",
+  "filters_json": "[[\"Sales Invoice\",\"docstatus\",\"=\",1],[\"Sales Invoice\",\"posting_date\",\"Timespan\",\"this month\"]]",
+  "is_public": 1,
+  "show_percentage_stats": 1,
+  "stats_time_interval": "Monthly",
+  "color": "#1f6f6f"
+ },
+ {
+  "doctype": "Number Card",
+  "name": "CRM Ultra - ดีลที่เปิดอยู่",
+  "label": "ดีลที่เปิดอยู่ (Open Opportunities)",
+  "module": "CRM Ultra",
+  "type": "Document Type",
+  "document_type": "Opportunity",
+  "function": "Count",
+  "filters_json": "[[\"Opportunity\",\"status\",\"=\",\"Open\"]]",
+  "is_public": 1,
+  "color": "#2a9d8f"
+ },
+ {
+  "doctype": "Number Card",
+  "name": "CRM Ultra - Lead ใหม่เดือนนี้",
+  "label": "Lead ใหม่เดือนนี้",
+  "module": "CRM Ultra",
+  "type": "Document Type",
+  "document_type": "Lead",
+  "function": "Count",
+  "filters_json": "[[\"Lead\",\"creation\",\"Timespan\",\"this month\"]]",
+  "is_public": 1,
+  "color": "#e9c46a"
+ },
+ {
+  "doctype": "Number Card",
+  "name": "CRM Ultra - ใบเสนอราคารออนุมัติ",
+  "label": "ใบเสนอราคารออนุมัติ",
+  "module": "CRM Ultra",
+  "type": "Document Type",
+  "document_type": "Quotation",
+  "function": "Count",
+  "filters_json": "[[\"Quotation\",\"workflow_state\",\"=\",\"Pending Approval\"]]",
+  "is_public": 1,
+  "color": "#e76f51"
+ }
+]

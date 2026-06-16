@@ -38,7 +38,21 @@ fixtures = [
     },
     {
         "dt": "Print Format",
-        "filters": [["name", "in", ["CRM Ultra Quotation TH"]]],
+        "filters": [
+            ["name", "in", ["CRM Ultra Quotation TH", "CRM Ultra Tax Invoice TH"]]
+        ],
+    },
+    {
+        "dt": "Number Card",
+        "filters": [["module", "=", "CRM Ultra"]],
+    },
+    {
+        "dt": "Dashboard Chart",
+        "filters": [["module", "=", "CRM Ultra"]],
+    },
+    {
+        "dt": "Dashboard",
+        "filters": [["module", "=", "CRM Ultra"]],
     },
 ]
 

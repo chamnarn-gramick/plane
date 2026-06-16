@@ -12,6 +12,9 @@ Frappe/ERPNext custom app ที่แพ็กการปรับแต่ง
 | **เลขเอกสารไทย** | ใบเสนอราคารันเลข `QU-YY-MM-#####` |
 | **Print Format ไทย** | `CRM Ultra Quotation TH` — ใบเสนอราคาภาษาไทยพร้อมพิมพ์/ส่ง PDF |
 | **แจ้งเตือนหมดอายุ** | งานรันทุกวัน ส่งอีเมล + สร้าง ToDo ติดตามใบเสนอราคาที่ใกล้หมดอายุภายใน 3 วัน |
+| **ใบกำกับภาษีไทย** | `CRM Ultra Tax Invoice TH` — ใบกำกับภาษี/ใบเสร็จรับเงินภาษาไทย (มีเลขผู้เสียภาษีบริษัท/ลูกค้า) |
+| **Dashboard ยอดขาย** | Dashboard `CRM Ultra Sales`: ยอดขายเดือนนี้, ดีลที่เปิดอยู่, Lead ใหม่, ใบเสนอราคารออนุมัติ + กราฟยอดขายรายเดือน + Pipeline ตามขั้นตอน |
+| **LINE Webhook** | สร้าง Lead อัตโนมัติเมื่อมีคนทักผ่าน LINE (ตรวจลายเซ็น, กันซ้ำ, เก็บข้อความเป็น comment) |
 
 > ฟีเจอร์ส่วนที่เหลือของ CRM Ultra (Activity, Pipeline, Marketing, Service/Helpdesk,
 > Reports & Dashboards, Mobile) มากับ ERPNext + Frappe CRM + Frappe Helpdesk อยู่แล้ว
@@ -43,6 +46,18 @@ bench --site <ชื่อ-site> enable-scheduler
 2. ใส่ส่วนลด (Additional Discount) > 10% → ปุ่ม **Submit for Approval** จะปรากฏ → สถานะเป็น *Pending Approval* รอ Sales Manager กด **Approve**
 3. กด **Print → CRM Ultra Quotation TH** เพื่อดูใบเสนอราคาภาษาไทย
 4. Lead/Customer จะมีฟิลด์ **ช่องทางที่มา / LINE ID / กลุ่มลูกค้า**
+
+## ตั้งค่า LINE (ออปชัน)
+1. ใส่ค่าใน `site_config.json`:
+   ```json
+   "line_channel_secret": "<channel secret จาก LINE Developers>"
+   ```
+2. ตั้ง Webhook URL ใน LINE Developers Console เป็น:
+   `https://<your-domain>/api/method/crm_ultra.api.line.webhook`
+3. ทักแชทเข้า LINE OA → ระบบจะสร้าง **Lead** ช่องทาง LINE ให้อัตโนมัติ
+
+## ดู Dashboard
+ไปที่เมนู **Dashboard → CRM Ultra Sales** จะเห็น KPI card + กราฟยอดขาย/Pipeline
 
 ## ปรับแต่งต่อ
 - เกณฑ์อนุมัติ (ตอนนี้ = ส่วนลด > 10%): แก้ที่ **Workflow → CRM Ultra Quotation Approval → Transitions → condition**

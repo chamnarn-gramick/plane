@@ -1,0 +1,20 @@
+[
+ {
+  "doctype": "Dashboard",
+  "name": "CRM Ultra Sales",
+  "dashboard_name": "CRM Ultra Sales",
+  "module": "CRM Ultra",
+  "is_default": 0,
+  "is_standard": 0,
+  "cards": [
+   { "doctype": "Number Card Link", "card": "CRM Ultra - ยอดขายเดือนนี้" },
+   { "doctype": "Number Card Link", "card": "CRM Ultra - ดีลที่เปิดอยู่" },
+   { "doctype": "Number Card Link", "card": "CRM Ultra - Lead ใหม่เดือนนี้" },
+   { "doctype": "Number Card Link", "card": "CRM Ultra - ใบเสนอราคารออนุมัติ" }
+  ],
+  "charts": [
+   { "doctype": "Dashboard Chart Link", "chart": "CRM Ultra - ยอดขายรายเดือน", "width": "Full" },
+   { "doctype": "Dashboard Chart Link", "chart": "CRM Ultra - Pipeline ตามขั้นตอน", "width": "Half" }
+  ]
+ }
+]
