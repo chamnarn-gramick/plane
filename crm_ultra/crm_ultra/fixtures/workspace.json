@@ -1,0 +1,49 @@
+[
+ {
+  "doctype": "Workspace",
+  "name": "CRM Ultra",
+  "label": "CRM Ultra",
+  "title": "CRM Ultra",
+  "module": "CRM Ultra",
+  "public": 1,
+  "is_hidden": 0,
+  "icon": "crm",
+  "indicator_color": "teal",
+  "sequence_id": 1.0,
+  "content": "[{\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>CRM Ultra — ระบบบริหารงานขาย</b></span>\",\"col\":12}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"ลูกค้ามุ่งหวัง\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"โอกาสการขาย\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"ใบเสนอราคา\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"แดชบอร์ดยอดขาย\",\"col\":3}},{\"type\":\"number_card\",\"data\":{\"number_card_name\":\"CRM Ultra - ยอดขายเดือนนี้\",\"col\":3}},{\"type\":\"number_card\",\"data\":{\"number_card_name\":\"CRM Ultra - ดีลที่เปิดอยู่\",\"col\":3}},{\"type\":\"number_card\",\"data\":{\"number_card_name\":\"CRM Ultra - Lead ใหม่เดือนนี้\",\"col\":3}},{\"type\":\"number_card\",\"data\":{\"number_card_name\":\"CRM Ultra - ใบเสนอราคารออนุมัติ\",\"col\":3}},{\"type\":\"chart\",\"data\":{\"chart_name\":\"CRM Ultra - ยอดขายรายเดือน\",\"col\":12}},{\"type\":\"card\",\"data\":{\"card_name\":\"งานขาย\",\"col\":4}},{\"type\":\"card\",\"data\":{\"card_name\":\"ลูกค้า\",\"col\":4}},{\"type\":\"card\",\"data\":{\"card_name\":\"เอกสารการเงิน\",\"col\":4}},{\"type\":\"card\",\"data\":{\"card_name\":\"บริการหลังการขาย\",\"col\":4}},{\"type\":\"card\",\"data\":{\"card_name\":\"การตลาด\",\"col\":4}}]",
+  "shortcuts": [
+   { "doctype": "Workspace Shortcut", "type": "DocType", "link_to": "Lead", "label": "ลูกค้ามุ่งหวัง", "color": "Yellow" },
+   { "doctype": "Workspace Shortcut", "type": "DocType", "link_to": "Opportunity", "label": "โอกาสการขาย", "color": "Blue" },
+   { "doctype": "Workspace Shortcut", "type": "DocType", "link_to": "Quotation", "label": "ใบเสนอราคา", "color": "Green" },
+   { "doctype": "Workspace Shortcut", "type": "Dashboard", "link_to": "CRM Ultra Sales", "label": "แดชบอร์ดยอดขาย", "color": "Purple" }
+  ],
+  "number_cards": [
+   { "doctype": "Workspace Number Card", "number_card": "CRM Ultra - ยอดขายเดือนนี้", "label": "CRM Ultra - ยอดขายเดือนนี้" },
+   { "doctype": "Workspace Number Card", "number_card": "CRM Ultra - ดีลที่เปิดอยู่", "label": "CRM Ultra - ดีลที่เปิดอยู่" },
+   { "doctype": "Workspace Number Card", "number_card": "CRM Ultra - Lead ใหม่เดือนนี้", "label": "CRM Ultra - Lead ใหม่เดือนนี้" },
+   { "doctype": "Workspace Number Card", "number_card": "CRM Ultra - ใบเสนอราคารออนุมัติ", "label": "CRM Ultra - ใบเสนอราคารออนุมัติ" }
+  ],
+  "charts": [
+   { "doctype": "Workspace Chart", "chart_name": "CRM Ultra - ยอดขายรายเดือน", "label": "CRM Ultra - ยอดขายรายเดือน" }
+  ],
+  "links": [
+   { "doctype": "Workspace Link", "type": "Card Break", "label": "งานขาย" },
+   { "doctype": "Workspace Link", "type": "Link", "link_type": "DocType", "link_to": "Lead", "label": "ลูกค้ามุ่งหวัง" },
+   { "doctype": "Workspace Link", "type": "Link", "link_type": "DocType", "link_to": "Opportunity", "label": "โอกาสการขาย" },
+   { "doctype": "Workspace Link", "type": "Link", "link_type": "DocType", "link_to": "Quotation", "label": "ใบเสนอราคา" },
+   { "doctype": "Workspace Link", "type": "Link", "link_type": "DocType", "link_to": "Sales Order", "label": "ใบสั่งขาย" },
+   { "doctype": "Workspace Link", "type": "Card Break", "label": "ลูกค้า" },
+   { "doctype": "Workspace Link", "type": "Link", "link_type": "DocType", "link_to": "Customer", "label": "ลูกค้า" },
+   { "doctype": "Workspace Link", "type": "Link", "link_type": "DocType", "link_to": "Contact", "label": "ผู้ติดต่อ" },
+   { "doctype": "Workspace Link", "type": "Link", "link_type": "DocType", "link_to": "Address", "label": "ที่อยู่" },
+   { "doctype": "Workspace Link", "type": "Card Break", "label": "เอกสารการเงิน" },
+   { "doctype": "Workspace Link", "type": "Link", "link_type": "DocType", "link_to": "Sales Invoice", "label": "ใบแจ้งหนี้ / ใบกำกับภาษี" },
+   { "doctype": "Workspace Link", "type": "Link", "link_type": "DocType", "link_to": "Payment Entry", "label": "รายการรับชำระเงิน" },
+   { "doctype": "Workspace Link", "type": "Card Break", "label": "บริการหลังการขาย" },
+   { "doctype": "Workspace Link", "type": "Link", "link_type": "DocType", "link_to": "Issue", "label": "เรื่องร้องเรียน / งานบริการ" },
+   { "doctype": "Workspace Link", "type": "Card Break", "label": "การตลาด" },
+   { "doctype": "Workspace Link", "type": "Link", "link_type": "DocType", "link_to": "Email Campaign", "label": "แคมเปญอีเมล" },
+   { "doctype": "Workspace Link", "type": "Link", "link_type": "DocType", "link_to": "Newsletter", "label": "จดหมายข่าว" }
+  ]
+ }
+]

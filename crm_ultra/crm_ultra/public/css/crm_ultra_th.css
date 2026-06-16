@@ -1,0 +1,37 @@
+/* CRM Ultra — ปรับ UI ให้เหมาะกับผู้ใช้ไทย (ฟอนต์ Sarabun) */
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --crm-th-font: 'Sarabun', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+}
+
+body,
+.navbar,
+.page-head,
+.page-title,
+.sidebar-item-label,
+.standard-sidebar-item,
+.form-control,
+.input-with-feedback,
+.btn,
+.modal-title,
+.widget,
+.ce-block,
+.list-row,
+.grid-row,
+.dt-cell__content,
+.menu-item-label,
+.workspace-title {
+  font-family: var(--crm-th-font) !important;
+}
+
+/* เพิ่ม line-height ให้สระ/วรรณยุกต์ไทยอ่านง่ายขึ้น */
+body { line-height: 1.6; }
+.form-control,
+.list-row,
+.dt-cell__content { line-height: 1.55; }
+
+/* ทำให้ตัวเลขยอดเงินบนการ์ด KPI เด่นขึ้น */
+.widget.number-widget-box .widget-content .number {
+  font-weight: 600;
+}

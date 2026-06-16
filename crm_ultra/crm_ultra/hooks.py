@@ -8,6 +8,10 @@ app_license = "MIT"
 # Apps this app depends on
 required_apps = ["frappe/erpnext"]
 
+# Include ฟอนต์/สไตล์ไทย (Sarabun) ในหน้า Desk และ Portal
+app_include_css = "/assets/crm_ultra/css/crm_ultra_th.css"
+web_include_css = "/assets/crm_ultra/css/crm_ultra_th.css"
+
 # Installation
 # ------------
 after_install = "crm_ultra.install.after_install"
@@ -52,6 +56,10 @@ fixtures = [
     },
     {
         "dt": "Dashboard",
+        "filters": [["module", "=", "CRM Ultra"]],
+    },
+    {
+        "dt": "Workspace",
         "filters": [["module", "=", "CRM Ultra"]],
     },
 ]

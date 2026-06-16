@@ -15,6 +15,7 @@ Frappe/ERPNext custom app ที่แพ็กการปรับแต่ง
 | **ใบกำกับภาษีไทย** | `CRM Ultra Tax Invoice TH` — ใบกำกับภาษี/ใบเสร็จรับเงินภาษาไทย (มีเลขผู้เสียภาษีบริษัท/ลูกค้า) |
 | **Dashboard ยอดขาย** | Dashboard `CRM Ultra Sales`: ยอดขายเดือนนี้, ดีลที่เปิดอยู่, Lead ใหม่, ใบเสนอราคารออนุมัติ + กราฟยอดขายรายเดือน + Pipeline ตามขั้นตอน |
 | **LINE Webhook** | สร้าง Lead อัตโนมัติเมื่อมีคนทักผ่าน LINE (ตรวจลายเซ็น, กันซ้ำ, เก็บข้อความเป็น comment) |
+| **UX/UI ไทย** | ฟอนต์ Sarabun ทั้งระบบ, คำแปลภาษาไทย, Workspace `CRM Ultra` รวมเมนู/ปุ่มลัด/KPI, ตั้งค่าเริ่มต้นแบบไทย (ภาษา/โซนเวลา Asia/Bangkok/วันที่ dd/mm/yyyy) |
 
 > ฟีเจอร์ส่วนที่เหลือของ CRM Ultra (Activity, Pipeline, Marketing, Service/Helpdesk,
 > Reports & Dashboards, Mobile) มากับ ERPNext + Frappe CRM + Frappe Helpdesk อยู่แล้ว
@@ -58,6 +59,15 @@ bench --site <ชื่อ-site> enable-scheduler
 
 ## ดู Dashboard
 ไปที่เมนู **Dashboard → CRM Ultra Sales** จะเห็น KPI card + กราฟยอดขาย/Pipeline
+หรือเปิด Workspace **CRM Ultra** จากแถบซ้าย จะเห็นทุกอย่างรวมกันเป็นภาษาไทย
+
+## UX/UI ไทย
+- **ฟอนต์ Sarabun**: โหลดอัตโนมัติผ่าน `app_include_css` (เห็นผลหลัง `bench build`)
+- **คำแปลไทย**: อยู่ใน `crm_ultra/translations/th.csv` (มีผลเมื่อภาษา = ไทย)
+- **ตั้งค่าระบบ**: `install.py` ตั้งภาษาไทย/โซนเวลา Asia/Bangkok/วันที่ dd/mm/yyyy ให้อัตโนมัติตอนติดตั้ง
+  (ปรับภายหลังได้ที่ **System Settings**)
+- **ฟอนต์ใน PDF**: ติดตั้งฟอนต์ Sarabun บนเซิร์ฟเวอร์เพื่อให้ wkhtmltopdf เรนเดอร์ภาษาไทยสวย
+  เช่น `sudo apt install fonts-thai-tlwg`
 
 ## ปรับแต่งต่อ
 - เกณฑ์อนุมัติ (ตอนนี้ = ส่วนลด > 10%): แก้ที่ **Workflow → CRM Ultra Quotation Approval → Transitions → condition**
