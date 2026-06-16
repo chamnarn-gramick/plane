@@ -1,0 +1,77 @@
+[
+ {
+  "doctype": "Custom Field",
+  "name": "Lead-crm_channel",
+  "dt": "Lead",
+  "module": "CRM Ultra",
+  "fieldname": "crm_channel",
+  "label": "ช่องทางที่มา (Channel)",
+  "fieldtype": "Select",
+  "options": "\nFacebook\nLINE\nInstagram\nWebsite\nPhone\nWalk-in\nExhibition\nReferral",
+  "insert_after": "source"
+ },
+ {
+  "doctype": "Custom Field",
+  "name": "Lead-crm_line_id",
+  "dt": "Lead",
+  "module": "CRM Ultra",
+  "fieldname": "crm_line_id",
+  "label": "LINE ID",
+  "fieldtype": "Data",
+  "insert_after": "crm_channel"
+ },
+ {
+  "doctype": "Custom Field",
+  "name": "Lead-crm_segment",
+  "dt": "Lead",
+  "module": "CRM Ultra",
+  "fieldname": "crm_segment",
+  "label": "กลุ่มลูกค้า (Segment)",
+  "fieldtype": "Select",
+  "options": "\nA - VIP\nB - ประจำ\nC - ทั่วไป\nD - ใหม่",
+  "insert_after": "crm_line_id"
+ },
+ {
+  "doctype": "Custom Field",
+  "name": "Opportunity-crm_channel",
+  "dt": "Opportunity",
+  "module": "CRM Ultra",
+  "fieldname": "crm_channel",
+  "label": "ช่องทางที่มา (Channel)",
+  "fieldtype": "Select",
+  "options": "\nFacebook\nLINE\nInstagram\nWebsite\nPhone\nWalk-in\nExhibition\nReferral",
+  "insert_after": "source"
+ },
+ {
+  "doctype": "Custom Field",
+  "name": "Customer-crm_segment",
+  "dt": "Customer",
+  "module": "CRM Ultra",
+  "fieldname": "crm_segment",
+  "label": "กลุ่มลูกค้า (Segment)",
+  "fieldtype": "Select",
+  "options": "\nA - VIP\nB - ประจำ\nC - ทั่วไป\nD - ใหม่",
+  "insert_after": "customer_group"
+ },
+ {
+  "doctype": "Custom Field",
+  "name": "Customer-crm_line_id",
+  "dt": "Customer",
+  "module": "CRM Ultra",
+  "fieldname": "crm_line_id",
+  "label": "LINE ID",
+  "fieldtype": "Data",
+  "insert_after": "crm_segment"
+ },
+ {
+  "doctype": "Custom Field",
+  "name": "Quotation-crm_approval_note",
+  "dt": "Quotation",
+  "module": "CRM Ultra",
+  "fieldname": "crm_approval_note",
+  "label": "หมายเหตุการอนุมัติ (Approval Note)",
+  "fieldtype": "Small Text",
+  "insert_after": "terms",
+  "allow_on_submit": 1
+ }
+]

@@ -1,0 +1,79 @@
+[
+ {
+  "doctype": "Workflow",
+  "name": "CRM Ultra Quotation Approval",
+  "workflow_name": "CRM Ultra Quotation Approval",
+  "document_type": "Quotation",
+  "is_active": 1,
+  "override_status": 0,
+  "send_email_alert": 1,
+  "workflow_state_field": "workflow_state",
+  "states": [
+   {
+    "doctype": "Workflow Document State",
+    "state": "Draft",
+    "doc_status": "0",
+    "allow_edit": "Sales User",
+    "style": "Primary"
+   },
+   {
+    "doctype": "Workflow Document State",
+    "state": "Pending Approval",
+    "doc_status": "0",
+    "allow_edit": "Sales Manager",
+    "style": "Warning",
+    "message": "ใบเสนอราคามีส่วนลดเกิน 10% รออนุมัติจากผู้จัดการฝ่ายขาย"
+   },
+   {
+    "doctype": "Workflow Document State",
+    "state": "Approved",
+    "doc_status": "1",
+    "allow_edit": "Sales Manager",
+    "style": "Success"
+   },
+   {
+    "doctype": "Workflow Document State",
+    "state": "Rejected",
+    "doc_status": "0",
+    "allow_edit": "Sales User",
+    "style": "Danger"
+   }
+  ],
+  "transitions": [
+   {
+    "doctype": "Workflow Transition",
+    "state": "Draft",
+    "action": "Approve",
+    "next_state": "Approved",
+    "allowed": "Sales User",
+    "allow_self_approval": 1,
+    "condition": "not doc.additional_discount_percentage or doc.additional_discount_percentage <= 10"
+   },
+   {
+    "doctype": "Workflow Transition",
+    "state": "Draft",
+    "action": "Submit for Approval",
+    "next_state": "Pending Approval",
+    "allowed": "Sales User",
+    "allow_self_approval": 1,
+    "condition": "doc.additional_discount_percentage and doc.additional_discount_percentage > 10"
+   },
+   {
+    "doctype": "Workflow Transition",
+    "state": "Pending Approval",
+    "action": "Approve",
+    "next_state": "Approved",
+    "allowed": "Sales Manager",
+    "allow_self_approval": 1
+   },
+   {
+    "doctype": "Workflow Transition",
+    "state": "Pending Approval",
+    "action": "Reject",
+    "next_state": "Rejected",
+    "allowed": "Sales Manager",
+    "allow_self_approval": 1
+   }
+  ]
+ }
+]

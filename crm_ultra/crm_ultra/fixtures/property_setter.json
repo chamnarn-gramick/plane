@@ -1,0 +1,12 @@
+[
+ {
+  "doctype": "Property Setter",
+  "name": "Quotation-naming_series-options",
+  "doctype_or_field": "DocField",
+  "doc_type": "Quotation",
+  "field_name": "naming_series",
+  "property": "options",
+  "property_type": "Text",
+  "value": "QU-.YY.-.MM.-.#####\nQTN-.YYYY.-"
+ }
+]
