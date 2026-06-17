@@ -47,10 +47,15 @@ BREW_PREFIX="$(brew --prefix)"
 
 # ============================================================
 log "1/10 ติดตั้ง dependencies ผ่าน Homebrew"
-brew install "python@${PY_VER}" "node@${NODE_VER}" yarn git redis mariadb wkhtmltopdf || true
+brew install "python@${PY_VER}" "node@${NODE_VER}" yarn git redis mariadb
 # ใส่ node@xx ใน PATH ของ shell นี้ (เป็น keg-only)
 export PATH="$BREW_PREFIX/opt/node@${NODE_VER}/bin:$BREW_PREFIX/opt/python@${PY_VER}/bin:$PATH"
 command -v yarn >/dev/null 2>&1 || npm install -g yarn
+# wkhtmltopdf ถูกถอดออกจาก Homebrew core แล้ว -> ติดตั้งแยก (ไม่บังคับ; ใช้พิมพ์ PDF เท่านั้น)
+if ! command -v wkhtmltopdf >/dev/null 2>&1; then
+  warn "ไม่พบ wkhtmltopdf (Homebrew ถอดออกแล้ว) — ข้ามได้ ระบบ dev ใช้งานได้ปกติ ยกเว้นการพิมพ์ PDF"
+  warn "ต้องการ PDF ภายหลัง? โหลด .pkg จาก https://wkhtmltopdf.org/downloads.html มาติดตั้ง"
+fi
 
 PYBIN="$BREW_PREFIX/opt/python@${PY_VER}/bin/python${PY_VER}"
 [ -x "$PYBIN" ] || PYBIN="$(command -v python3)"
