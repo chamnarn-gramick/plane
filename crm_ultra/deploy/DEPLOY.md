@@ -40,6 +40,29 @@ sudo bash crm_ultra/deploy/start.sh        # เริ่ม MariaDB + bench sta
 
 สคริปต์ **idempotent** — รันซ้ำได้ ข้ามขั้นตอนที่ทำไปแล้วโดยอัตโนมัติ
 
+## ตัวเลือก A2 — `dev-mac.sh` (สำหรับ dev บน macOS)
+
+รันบน **เครื่อง Mac ของคุณเอง** (Apple Silicon/Intel) ด้วย Homebrew — ไม่ต้อง sudo
+
+```bash
+# ต้องมี Homebrew ก่อน (https://brew.sh) แล้ว clone รีโปนี้ลงเครื่อง
+cd <โฟลเดอร์รีโป plane>
+bash crm_ultra/deploy/dev-mac.sh
+# พร้อมข้อมูลตัวอย่าง:
+SEED_DEMO=1 bash crm_ultra/deploy/dev-mac.sh
+
+# เริ่ม dev server:
+cd ~/frappe-bench && bench start
+# เปิด http://crm.localhost:8000   (login: Administrator / admin)
+```
+
+สคริปต์จะ `brew install` python/node/redis/mariadb/wkhtmltopdf, ตั้ง utf8mb4,
+เริ่มบริการผ่าน `brew services`, ติดตั้ง bench + erpnext + crm_ultra, สร้าง site,
+รัน setup wizard และ build assets ให้อัตโนมัติ
+
+> หมายเหตุ: `wkhtmltopdf` จาก Homebrew อาจไม่มี patched-Qt ทำให้ส่วนหัว/ท้ายกระดาษ
+> ของ PDF เพี้ยนได้ — ตัวใบเสนอราคา/ใบกำกับภาษีของ crm_ultra ไม่ใช้ header/footer จึงใช้ได้ปกติ
+
 ## ตัวเลือก B — Docker
 
 หากเซิร์ฟเวอร์ของคุณเข้าถึง Docker Hub ได้ (เครื่อง dev บางที่/คลาวด์บางที่บล็อก CDN ของ
