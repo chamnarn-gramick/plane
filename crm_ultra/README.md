@@ -61,6 +61,14 @@ bench --site <ชื่อ-site> enable-scheduler
 ไปที่เมนู **Dashboard → CRM Ultra Sales** จะเห็น KPI card + กราฟยอดขาย/Pipeline
 หรือเปิด Workspace **CRM Ultra** จากแถบซ้าย จะเห็นทุกอย่างรวมกันเป็นภาษาไทย
 
+## ข้อมูลตัวอย่าง (Demo)
+ให้ Dashboard มีตัวเลขทันทีสำหรับทดสอบ/เดโม:
+```bash
+bench --site <site> execute crm_ultra.demo.make_demo_data    # สร้าง
+bench --site <site> execute crm_ultra.demo.clear_demo_data    # ล้าง (ลบรายการ [DEMO] ทั้งหมด)
+```
+> เป็นข้อมูลทดสอบเท่านั้น (ตั้งสถานะเอกสารตรงๆ ไม่ลงบัญชี GL) — ห้ามใช้บน production
+
 ## UX/UI ไทย
 - **ฟอนต์ Sarabun**: โหลดอัตโนมัติผ่าน `app_include_css` (เห็นผลหลัง `bench build`)
 - **คำแปลไทย**: อยู่ใน `crm_ultra/translations/th.csv` (มีผลเมื่อภาษา = ไทย)
