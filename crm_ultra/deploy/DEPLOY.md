@@ -45,16 +45,28 @@ sudo bash crm_ultra/deploy/start.sh        # เริ่ม MariaDB + bench sta
 รันบน **เครื่อง Mac ของคุณเอง** (Apple Silicon/Intel) ด้วย Homebrew — ไม่ต้อง sudo
 
 ```bash
-# ต้องมี Homebrew ก่อน (https://brew.sh) แล้ว clone รีโปนี้ลงเครื่อง
-cd <โฟลเดอร์รีโป plane>
-bash crm_ultra/deploy/dev-mac.sh
-# พร้อมข้อมูลตัวอย่าง:
+# 0) ต้องมี Homebrew ก่อน (https://brew.sh)
+
+# 1) clone รีโปลงที่ ~/Desktop/webjs/crm-saas
+mkdir -p ~/Desktop/webjs
+git clone -b claude/crm-system-requirements-xfhkxp \
+  https://github.com/chamnarn-gramick/plane.git ~/Desktop/webjs/crm-saas
+
+# 2) รันสคริปต์ติดตั้ง dev (พร้อมข้อมูลตัวอย่าง)
+cd ~/Desktop/webjs/crm-saas
 SEED_DEMO=1 bash crm_ultra/deploy/dev-mac.sh
 
-# เริ่ม dev server:
+# 3) เริ่ม dev server
 cd ~/frappe-bench && bench start
 # เปิด http://crm.localhost:8000   (login: Administrator / admin)
 ```
+
+**Dev loop:** สคริปต์ symlink `~/frappe-bench/apps/crm_ultra` → `~/Desktop/webjs/crm-saas/crm_ultra`
+ดังนั้นแก้โค้ดในโฟลเดอร์รีโปได้ตรงๆ แล้วมีผลทันที:
+- แก้ไฟล์ `.py` → dev server รีโหลดให้เอง (หรือ `bench restart`)
+- แก้ `fixtures/*.json` → `bench --site crm.localhost migrate`
+- แก้ JS/CSS → `bench build`
+- `git commit && git push` → ทำในโฟลเดอร์ `~/Desktop/webjs/crm-saas` ได้เลย
 
 สคริปต์จะ `brew install` python/node/redis/mariadb/wkhtmltopdf, ตั้ง utf8mb4,
 เริ่มบริการผ่าน `brew services`, ติดตั้ง bench + erpnext + crm_ultra, สร้าง site,

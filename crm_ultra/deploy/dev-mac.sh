@@ -107,15 +107,15 @@ redis-server config/redis_queue.conf --daemonize yes 2>/dev/null || true
 sleep 2
 
 # ============================================================
-log "6/10 ดึงแอป erpnext + crm_ultra"
+log "6/10 ดึงแอป erpnext + เชื่อมแอป crm_ultra (โหมด dev = symlink)"
 [ -d "$BENCH_DIR/apps/erpnext" ] || bench get-app --branch "$FRAPPE_BRANCH" erpnext
-if [ ! -d "$BENCH_DIR/apps/crm_ultra" ]; then
-  CRM_SRC="$BENCH_DIR/../crm_ultra_src"
-  rm -rf "$CRM_SRC"; cp -r "$APP_DIR" "$CRM_SRC"
-  ( cd "$CRM_SRC" && (git rev-parse --git-dir >/dev/null 2>&1 || \
-      (git init -q && git add -A && git -c commit.gpgsign=false \
-        -c user.email=dev@local -c user.name=dev commit -qm crm_ultra)) )
-  bench get-app "$CRM_SRC"
+if [ ! -e "$BENCH_DIR/apps/crm_ultra" ]; then
+  # โหมด dev: symlink โฟลเดอร์แอปจากรีโปที่คุณ clone เข้ามาใน bench
+  # → แก้โค้ดในรีโป (เช่น ~/Desktop/webjs/crm-saas/crm_ultra) แล้วมีผลทันที + push กลับได้
+  log "เชื่อม (symlink) $APP_DIR -> $BENCH_DIR/apps/crm_ultra"
+  ln -s "$APP_DIR" "$BENCH_DIR/apps/crm_ultra"
+  "$BENCH_DIR/env/bin/python" -m pip install -q -e "$BENCH_DIR/apps/crm_ultra"
+  grep -qxF crm_ultra "$BENCH_DIR/sites/apps.txt" 2>/dev/null || echo "crm_ultra" >> "$BENCH_DIR/sites/apps.txt"
 fi
 
 # ============================================================
@@ -188,5 +188,12 @@ cat <<DONE
    cd $BENCH_DIR && bench start
 
  เปิดเบราว์เซอร์:  http://$SITE_NAME:8000
+
+ --- dev loop (แก้โค้ดในรีโปของคุณ) ---
+ แอปถูก symlink ไว้:  $BENCH_DIR/apps/crm_ultra  ->  $APP_DIR
+   • แก้ไฟล์ Python      -> bench restart (หรือ dev server รีโหลดให้เอง)
+   • แก้ fixtures/*.json -> bench --site $SITE_NAME migrate
+   • แก้ JS/CSS          -> bench build
+   • commit/push         -> ทำในโฟลเดอร์รีโป (เช่น ~/Desktop/webjs/crm-saas)
 ============================================================
 DONE
