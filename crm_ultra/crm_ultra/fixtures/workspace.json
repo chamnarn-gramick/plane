@@ -18,10 +18,10 @@
    { "doctype": "Workspace Shortcut", "type": "Dashboard", "link_to": "CRM Ultra Sales", "label": "แดชบอร์ดยอดขาย", "color": "Purple" }
   ],
   "number_cards": [
-   { "doctype": "Workspace Number Card", "number_card": "CRM Ultra - ยอดขายเดือนนี้", "label": "CRM Ultra - ยอดขายเดือนนี้" },
-   { "doctype": "Workspace Number Card", "number_card": "CRM Ultra - ดีลที่เปิดอยู่", "label": "CRM Ultra - ดีลที่เปิดอยู่" },
-   { "doctype": "Workspace Number Card", "number_card": "CRM Ultra - Lead ใหม่เดือนนี้", "label": "CRM Ultra - Lead ใหม่เดือนนี้" },
-   { "doctype": "Workspace Number Card", "number_card": "CRM Ultra - ใบเสนอราคารออนุมัติ", "label": "CRM Ultra - ใบเสนอราคารออนุมัติ" }
+   { "doctype": "Workspace Number Card", "number_card_name": "CRM Ultra - ยอดขายเดือนนี้", "label": "ยอดขายเดือนนี้" },
+   { "doctype": "Workspace Number Card", "number_card_name": "CRM Ultra - ดีลที่เปิดอยู่", "label": "ดีลที่เปิดอยู่" },
+   { "doctype": "Workspace Number Card", "number_card_name": "CRM Ultra - Lead ใหม่เดือนนี้", "label": "Lead ใหม่เดือนนี้" },
+   { "doctype": "Workspace Number Card", "number_card_name": "CRM Ultra - ใบเสนอราคารออนุมัติ", "label": "ใบเสนอราคารออนุมัติ" }
   ],
   "charts": [
    { "doctype": "Workspace Chart", "chart_name": "CRM Ultra - ยอดขายรายเดือน", "label": "CRM Ultra - ยอดขายรายเดือน" }
